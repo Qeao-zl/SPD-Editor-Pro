@@ -1,0 +1,6 @@
+release-assets/
+*.zip
+*.bin
+*.spd
+*.rom
+
