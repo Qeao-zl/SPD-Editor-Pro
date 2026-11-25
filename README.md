@@ -6,6 +6,8 @@
 
 ## v2.9.3 横屏与厂商识别预览
 
+[下载 Windows 便携预览版与 SHA-256 校验文件](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-preview.1)
+
 - 横屏工作台同时显示 SPD 详情和快捷修改，操作日志可向下展开。
 - 内置 2,306 个 JEDEC 厂商识别条目。识别库和可选的品牌修改预设分开；厂商编码校验异常时会明确提示。
 - SPD 文件库可导入并预览 `.bin` / `.spd`，加载到编辑区不会直接烧录。
