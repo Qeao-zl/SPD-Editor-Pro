@@ -1,65 +1,40 @@
 # SPD Editor Pro
 
-面向 DDR4 / DDR5 SPD 烧录器的中文图形化编辑工具，支持 SPD 读取、增量烧录、二进制编辑、CRC 校验与修复、序列号/生产日期/频率快捷修改，以及分区写保护状态检测。
+面向 DDR4 / DDR5 SPD 烧录器的中文图形化工具。支持 SPD 读取、增量烧录、二进制编辑、CRC 校验与修复、模组品牌与序列号编辑、分区写保护。
 
-> 本仓库用于发布 Windows 便携版本，不公开应用源码。请仅对自己拥有或获准维护的内存条进行操作。
+> 本仓库仅发布 Windows 便携包，不公开应用源码。请仅操作自己拥有或获准维护的内存。
 
-## v2.9.3 横屏与厂商识别预览
+## 下载 v3.1.0
 
-[下载 Windows 便携预览版与 SHA-256 校验文件](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-preview.1)
+- [下载 Windows x64 便携包](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/download/v3.1.0/SPD_Editor_Pro_v3.1.0.zip)
+- [发布说明和 SHA-256 校验](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v3.1.0)
 
-- 横屏工作台同时显示 SPD 详情和快捷修改，操作日志可向下展开。
-- 内置 2,306 个 JEDEC 厂商识别条目。识别库和可选的品牌修改预设分开；厂商编码校验异常时会明确提示。
-- SPD 文件库可导入并预览 `.bin` / `.spd`，加载到编辑区不会直接烧录。
-- 使用「烧录并锁定第一区」时，先对照原值和新值，写入并逐字节回读通过后才锁第一区。
+### 新版界面
 
-> 预览版已做离线测试，尚未完成 Windows 和实物烧录验证。DDR5 容量目前只从料号中的容量字样提取，速率来自 SPD 时序，不是机器实际运行速率。建议先用备份文件离线试用。
+暖银灰工作区。普通操作采用浅银玻璃按钮，读取按钮使用浅青玻璃，「烧录并锁定第一区」采用深青玻璃。快捷修改页将手动修改与完整识别码分区；二进制编辑、四区块上锁仍保留原布局。
 
-### 界面展示
+下图是按本版界面绘制的设计示意，使用模拟数据，并非 Windows 实机截图。
 
-下图按本版布局绘制，使用模拟数据，并非 Windows 实机截图。
+![v3.1.0 工作台界面示意](docs/images/workbench-v3.1.0.png)
 
-![SPD Editor Pro 横屏工作台](docs/images/workbench-v2.9.3.png)
+![v3.1.0 普通玻璃按钮细节](docs/images/buttons-v3.1.0.png)
 
-![烧录核对与 SPD 文件库](docs/images/dialogs-v2.9.3.png)
+### 使用方法
 
-## 推荐版本
+1. 完整解压到新文件夹，双击根目录的 `【双击启动】SPD Editor Pro.exe`。不要移动「程序文件」目录。
+2. 接上烧录器，点击「读取 SPD」。直读失败会在当前串口自动扫描并重试。手动修改栏同步新读取的数据。先保存原始 SPD 备份。
+3. 普通编辑先应用各项更改。右上角「烧录 SPD」会列出待写字段的原值和新值，确认后才烧录，本次不锁。
+4. 「烧录并锁定第一区」直接执行，不弹对比；逐字节回读校验通过后才锁第一区。读取时不会自动做原值写回验锁；如需检测现有锁状态，请在「四区块上锁」手动操作。
 
-推荐下载 **高速烧录・三区快捷上锁・舒适字体版**。它包含目前完整且稳定的功能：
+内置 2,306 条 JEDEC 厂商识别记录，与 28 个编辑预设分开。DDR5 容量若料号未包含容量不一定能识别；显示的速率取自 SPD 时序，不是机器当前运行速率。
 
-- 输入完整识别码后，一键“修改并烧录”；
-- 只写发生变化的数据页，并在同一串口会话中回读校验；
-- 快捷修改页提供“上锁区块1 / 2 / 3”；
-- 自动检测 CRC、提示二进制改动；
-- 更换内存条后自动清除上一根的锁状态；
-- 窗口模式、最大化和不同分辨率适配；
-- 自带 .NET 运行环境，解压后可以直接运行。
+本版完成 Windows 目标编译和离线测试，未验证真实烧录器或 Windows 实机。建议先用备份文件离线试用。
 
-[下载推荐版本](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-three-lock)
+## 历史版本
 
-## 最近版本
-
-| 版本 | 适用场景 | 下载 |
-| --- | --- | --- |
-| 高速烧录・三区快捷上锁・舒适字体版 | 日常批量生产，推荐 | [v2.9.3-fast-three-lock](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-three-lock) |
-| 高速烧录・两步工作流版 | 修改完整识别码后锁定区块1 | [v2.9.3-fast-two-step](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-two-step) |
-| 四区一致自动验锁版 | 重点验证四个区块 | [v2.9.3-four-region](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-four-region) |
-| 批量自动验锁版 | 基础批量读取与自动验锁 | [v2.9.3-batch-auto-lock](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-batch-auto-lock) |
-
-## 使用方法
-
-1. 从 Releases 下载所需 ZIP。
-2. 将 ZIP **完整解压**到普通文件夹，不能直接在压缩软件预览窗口中运行。
-3. 双击根目录中的 `【双击启动】SPD Editor Pro.exe`。
-4. 连接烧录器并点击“自动扫描”或“读取 SPD”。
-5. 首次操作任何内存条时，先保存原始 SPD 备份。
-
-推荐批量流程：
-
-1. 插入内存条并读取 SPD；
-2. 输入完整识别码，点击“修改并烧录”；
-3. 烧录成功后，根据需要点击“上锁区块1”“上锁区块2”或“上锁区块3”；
-4. 确认日志显示上锁成功后，再更换下一根。
+- [v2.9.3 高速烧录・三区快捷上锁・舒适字体版](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-three-lock)
+- [v2.9.3 横屏与厂商识别预览](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-preview.1)
+- [全部历史版本](https://github.com/Qeao-zl/SPD-Editor-Pro/releases)
 
 ## 运行要求
 
@@ -78,7 +53,7 @@
 - “强制写入”只应在确认镜像正确且普通写入失败时使用；
 - 软件显示的上锁状态会结合硬件状态查询和原值写回检测进行判断。
 
-## 文件校验
+## 历史版本校验
 
 | 版本 | SHA256 |
 | --- | --- |
