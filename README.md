@@ -4,22 +4,20 @@
 
 > 本仓库仅发布 Windows 便携包，不公开应用源码。请仅操作自己拥有或获准维护的内存。
 
-> **v3.1.0 启动提示：** 有用户反馈打开后窗口持续刷新、不显示界面。若遇到此问题，请关闭新版，暂用[上一版便携包](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-three-lock)，不要在异常窗口中执行烧录。
+## 下载 v3.1.2
 
-## 下载 v3.1.0
-
-- [下载 Windows x64 便携包](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/download/v3.1.0/SPD_Editor_Pro_v3.1.0.zip)
-- [发布说明和 SHA-256 校验](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v3.1.0)
+- [下载 Windows x64 便携包](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/download/v3.1.2/SPD_Editor_Pro_v3.1.2.zip)
+- [发布说明和 SHA-256 校验](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v3.1.2)
 
 ### 新版界面
 
-暖银灰工作区。普通操作采用浅银玻璃按钮，读取按钮使用浅青玻璃，「烧录并锁定第一区」采用深青玻璃。快捷修改页将手动修改与完整识别码分区；二进制编辑、四区块上锁仍保留原布局。
+暖银灰工作区。顶部工具栏和页面标签栏保持原位置，各自上下居中。选中标签是浅青玻璃，其余是浅银玻璃。快捷修改页仍将手动修改与完整识别码分区。
 
 下图是按本版界面绘制的设计示意，使用模拟数据，并非 Windows 实机截图。
 
-![v3.1.0 工作台界面示意](docs/images/workbench-v3.1.0.png)
+![v3.1.2 工作台界面示意](docs/images/workbench-v3.1.2.png)
 
-![v3.1.0 普通玻璃按钮细节](docs/images/buttons-v3.1.0.png)
+![v3.1.2 玻璃标签细节](docs/images/tabs-v3.1.2.png)
 
 ### 使用方法
 
@@ -30,9 +28,11 @@
 
 内置 2,306 条 JEDEC 厂商识别记录，与 28 个编辑预设分开。DDR5 容量若料号未包含容量不一定能识别；显示的速率取自 SPD 时序，不是机器当前运行速率。
 
-本版完成 Windows 目标编译和离线测试，未验证真实烧录器或 Windows 实机。建议先用备份文件离线试用。
+本版移除了 v3.1.0 中可能触发重复重绘的背景采样和布局联动，合并缩放与屏幕变化事件。小窗口时工具按钮换行，内容可滚动。布局计算覆盖 800×600 至 3840×2160、100% 至 200% 缩放的 40 组模拟组合；尚未实机验证 Windows 窗口或真实烧录器，建议先断开烧录器测试最大化、还原与缩放。如遇显示异常，可暂用下方上一稳定版。
 
 ## 历史版本
+
+- [v3.1.0](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v3.1.0)：部分环境有缩放闪屏反馈，建议跳过此版。
 
 - [v2.9.3 高速烧录・三区快捷上锁・舒适字体版](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-three-lock)
 - [v2.9.3 横屏与厂商识别预览](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-preview.1)
