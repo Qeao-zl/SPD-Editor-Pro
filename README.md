@@ -4,6 +4,8 @@
 
 > 本仓库仅发布 Windows 便携包，不公开应用源码。请仅操作自己拥有或获准维护的内存。
 
+> **v3.1.0 启动提示：** 有用户反馈打开后窗口持续刷新、不显示界面。若遇到此问题，请关闭新版，暂用[上一版便携包](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/tag/v2.9.3-fast-three-lock)，不要在异常窗口中执行烧录。
+
 ## 下载 v3.1.0
 
 - [下载 Windows x64 便携包](https://github.com/Qeao-zl/SPD-Editor-Pro/releases/download/v3.1.0/SPD_Editor_Pro_v3.1.0.zip)
